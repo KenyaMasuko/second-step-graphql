@@ -27,4 +27,4 @@ import { validate } from './config/enviroments/env-validator';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
