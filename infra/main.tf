@@ -40,6 +40,6 @@ module "cloud-build" {
  region                      = var.primary_region
  cloudsql_instance_full_name = module.cloud-sql.blog_training_db_connection_name
  backend_app_name            = local.backend_app_name
- github_owner                = "cm-wada-yusuke"
- github_app_repo_name        = "gql-nest-prisma-training"
+ github_owner                = "kenya12814"
+ github_app_repo_name        = "secound-step-graphql"
 }
