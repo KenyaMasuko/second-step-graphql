@@ -12,7 +12,7 @@ resource "google_cloudbuild_trigger" "deploy-backend-training-app" {
     owner = var.github_owner
     name  = var.github_app_repo_name
     push {
-      branch = "^main$"
+      branch = "main"
     }
   }
   included_files = ["second-step-graphql/backend/**"]
