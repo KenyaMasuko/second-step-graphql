@@ -40,6 +40,6 @@ module "cloud-build" {
  region                      = var.primary_region
  cloudsql_instance_full_name = module.cloud-sql.blog_training_db_connection_name
  backend_app_name            = local.backend_app_name
- github_owner                = "kenchan-dayo"
- github_app_repo_name        = "secound-step-graphql"
+ github_owner                = "KenyaMasuko"
+ github_app_repo_name        = "second-step-graphql"
 }
