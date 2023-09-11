@@ -1,7 +1,7 @@
 terraform {
   required_version = ">= 1.0.0"
   backend "gcs" {
-    prefix = "tfstate/v1"
+    prefix = "tfstate/blog-training-app"
   }
 }
 

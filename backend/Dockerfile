@@ -10,8 +10,8 @@ RUN apt-get -qy install openssl
 
 WORKDIR /app
 COPY package.json ./
-COPY yarn.lock ./
+COPY pnpm-lock.yaml ./
 COPY prisma ./prisma
-RUN yarn install
+RUN pnpm install
 COPY . .
-CMD ["yarn", "prisma", "migrate", "deploy"]
+CMD ["pnpm", "prisma", "migrate", "deploy"]
