@@ -8,6 +8,9 @@ ENV NODE_ENV=development
 RUN apt-get -qy update
 RUN apt-get -qy install openssl
 
+# pnpmをインストール
+RUN npm install -g pnpm
+
 WORKDIR /app
 COPY package.json ./
 COPY pnpm-lock.yaml ./
