@@ -16,5 +16,6 @@ COPY package.json ./
 COPY pnpm-lock.yaml ./
 COPY prisma ./prisma
 RUN pnpm install
+RUN pnpm prisma generate
 COPY . .
 CMD ["pnpm", "prisma", "migrate", "deploy"]
