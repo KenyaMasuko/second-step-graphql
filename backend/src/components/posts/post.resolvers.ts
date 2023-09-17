@@ -4,19 +4,19 @@ import { PostModel } from './interfaces/post.model';
 import { GetPostsArgs } from 'src/components/posts/interfaces/get-posts-connection.args';
 import { FindPostArgs } from './interfaces/find-post-args';
 import { ConfigService } from '@nestjs/config';
+import { PbEnv } from 'src/config/enviroments/pb-env.service';
 
 @Resolver((of) => PostModel)
 export class PostsResolver {
   constructor(
     private readonly prisma: PrismaService,
     private configService: ConfigService,
-  ) { }
+    private pbEnv: PbEnv,
+  ) {}
 
   @Query(() => String)
-  helloConfiguration(): string {
-    const nodeEnv = this.configService.get<string>('NODE_ENV'); // development （.env.development.localのもの）
-    const databaseUrl = this.configService.get<string>('DATABASE_URL'); // postgresql:/... （.env.development.localのもの）
-    const microCmsKey = this.configService.get<string>('MICRO_CMS_KEY'); // 1234567890（環境変数のもの）
+  hello(): string {
+    return this.pbEnv.DatabaseUrl;
   }
 
   @Query(() => [PostModel], { name: 'fixedPosts', nullable: true })
@@ -54,8 +54,8 @@ export class PostsResolver {
       where: {
         type: args.type
           ? {
-            in: args.type,
-          }
+              in: args.type,
+            }
           : undefined,
         published: true, // ついでに指定。公開ブログへ渡すデータなのでtrue固定にしちゃう
       },

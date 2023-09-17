@@ -24,7 +24,7 @@ steps:
       - "-c"
       - "/buildstep/execute.sh -i $_ARTIFACT_REPOSITORY_IMAGE_NAME:$SHORT_SHA -e DATABASE_URL=$$DATABASE_URL -s $_CLOUDSQL_INSTANCE_FULL_NAME -- pnpm prisma migrate deploy"
     secretEnv: ["DATABASE_URL"]
-    dir: "second-step-graphql/backend"
+    dir: "backend"
     waitFor: ["push-backend"]
 timeout: 2000s
 substitutions:
